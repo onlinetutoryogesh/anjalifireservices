@@ -1,0 +1,9 @@
+git remote add origin https://github.com/onlinetutoryogesh/anjalifireservices.git
+git branch -M main
+git status
+git add .
+git commit -m "changes done"
+git status
+git push
+
+
