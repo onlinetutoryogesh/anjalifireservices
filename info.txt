@@ -1,3 +1,78 @@
 customers.html
 about-us.html
 product-and-services.html
+
+Hosting Used-netlify
+MX Record: netlify
+domain:anjalifireservices.com 
+domain provider:godaddy
+
+So this is how you add your email (MX) related records to Netlify:
+
+/**********************************/
+Point your domain’s name servers to Netlify
+To use Netlify DNS, go to your domain registrar and change your domain’s name servers to the following custom hostnames assigned to your DNS zone.
+
+dns1.p06.nsone.net
+dns2.p06.nsone.net
+dns3.p06.nsone.net
+dns4.p06.nsone.net
+
+/**************************************/
+
+Configure MX Record:
+https://www.amcrou.ch/adding-mx-records-to-netlify-dns-zone-file
+Login to Netlify and head to the Domain Settings section for your site.
+Scroll to the bottom of the page and look for the new DNS zones section. At the time of writing, it looked like this.
+Netlify DNS
+Select the zone relating to your domain.
+Click the Add new record button and enter the settings.
+Netlify DNS Record Dialog
+The settings are as follows:
+
+Type - MX.
+Hostname - Will default to the name of your Netlify site name.
+Value - This should be the server path for your email service. Do not include http:// or htpps://
+TTL - This is the Time To Live setting for the record. The standard Netlify setting appears to be 3600 but I tend to set short TTL’s where possible.
+Priority - This should be set to 10 from what I can ascertain.
+Click the Save button and wait for between 15 and 30 minutes for the settings to propagate. Your email services should be working as before.
+
+If you have any comments or would like to discuss this topic further then please message me via twitter or email.
+
+/*********************/
+GSIUTE MX Record:
+https://admin.google.com/ac/signup/setup/v2/verify/mx?cid=01i8j45u&sdn=adarshpharmacy.edu.in&admin_return_url=https%3A%2F%2Fadmin.google.com%2Fac%2Fdomains%2Fmanage
+
+1. Go to your domain host's website in a new tab
+If you're not sure who your domain host is, you can look up your domain host. Learn more
+
+2. Sign in to your domain host
+Sign in using your domain host's username and password. If you forgot your password, contact their support.
+
+3. Go to your MX records to set up email
+If you can’t find instructions for your domain host, use these general steps.
+
+Note: If people already have email with your domain (such as user@yourdomain.com), create their user accounts in the Google Admin console before you set up your MX records. That way, they’ll continue to receive email.
+
+In a second browser window or tab, sign in to your domain host account. Help me find my host.
+Go to the section where you can update your domain’s MX records. It might be called something like DNS Management, Mail Settings, or Advanced Settings.
+Select the option to add a new record.
+4. Delete your old MX settings
+Delete the current MX records that send mail to your old email provider. After that you'll add new MX records for Google Workspace.
+
+If you can’t delete the existing records, change their priority number to 20 or higher.
+
+5. Set up your email by adding MX records for Gmail.
+From the Type drop-down list, select MX.
+In the Name/Host/Alias field, enter @ or leave it blank.
+In the Server/Mail Server/Value/Answer/Destination field, enter ASPMX.L.GOOGLE.COM..
+In the Priority field, enter 1.
+In the Time to Live (TTL) field, enter 3600 or leave the default value.
+Click Save.
+Follow these same steps to add the MX records shown in this table. Start from the top of the table and enter as many as you have room for.
+MX SERVER ADDRESS	PRIORITY
+ALT1.ASPMX.L.GOOGLE.COM.	5
+ALT2.ASPMX.L.GOOGLE.COM.	5
+ALT3.ASPMX.L.GOOGLE.COM.	10
+ALT4.ASPMX.L.GOOGLE.COM.	10
+Note: Each address is for a Google mail server. We provide several servers in case one becomes unavailable. Some hosts also require a trailing period at the end of the server name.

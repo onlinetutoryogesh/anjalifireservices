@@ -87,13 +87,19 @@ p{
   height: 40px;
 }
 
+@media (max-width: 992px) {
+  #topbar {
+    font-size: 10px;
+  }
+}
+
 #topbar .contact-info i {
   font-style: normal;
   color: #ff5821;
 }
 
 #topbar .contact-info i a, #topbar .contact-info i span {
-  padding-left: 5px;
+  padding-left: 1px;
   color: #fff;
 }
 
@@ -482,9 +488,27 @@ p{
 
 @media (max-height: 640px) {
   #hero {
-    height: 120vh;
+    height: 80vh;
   }
 }
+
+@media (max-width: 640px) {
+  .about .icon-boxes h4, h3 {
+    text-align:center;
+  }
+}
+@media (max-width: 640px) {
+   .section-title {
+	margin-top: -10px;
+  }
+}
+@media (max-width: 640px) {
+   .btn-readmore {
+	margin-right:90px;
+  }
+}
+
+
 
 /*--------------------------------------------------------------
 # Sections General
@@ -510,6 +534,12 @@ section {
   padding-bottom: 0;
   font-family: "Poppins", sans-serif;
   color: #635551;
+}
+
+@media (max-width: 640px) {
+   .section-title h2{
+	   font-size:24px;
+  }
 }
 
 .section-title p {
@@ -1523,12 +1553,20 @@ section {
   margin: 10px 0 10px 68px;
 }
 
+
+@media (max-width:640px){
+.contact .info-box h3{
+	text-align:left;
+	margin: 10px 0 10px 68px;
+	}
+}
 .contact .info-box p {
   padding: 0;
   line-height: 24px;
   font-size: 14px;
   margin: 0 0 0 68px;
 }
+
 
 .contact .php-email-form {
   box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
