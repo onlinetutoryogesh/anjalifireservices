@@ -26,6 +26,47 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+	
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+  </script> 
+  <script>
+function SubForm (){
+	var a=document.forms["myContactForm"]["name"].value;
+    var b=document.forms["myContactForm"]["email"].value;
+    var c=document.forms["myContactForm"]["subject"].value;
+    var d=document.forms["myContactForm"]["message"].value;
+	if (a==null || a=="",b==null || b=="",c==null || c=="",d==null || d=="")
+    {
+        alert("Please Fill All Required Field");
+        return false;
+    }
+	else{
+			$.ajax({
+				url:'https://api.apispreadsheets.com/data/18383/',
+				type:'post',
+				data:$("#myContactForm").serializeArray(),
+				success: function(){
+				  alert("Your Contact Details Sent Succefully, We will contact you soon.)")
+				  document.getElementById("myContactForm").reset();
+				},
+				error: function(){
+				  alert("There was an error :(")
+				}
+			});
+		}
+}
+
+$(function () {
+
+    $('myContactForm').on('submit', function (e) {
+      e.preventDefault();
+
+      SubForm();
+
+
+    });
+  });
+</script>
 
 </head>
 
@@ -251,7 +292,7 @@
 	  
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
           <div class="col-xl-9 col-lg-12 mt-4">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form id="myContactForm" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -268,10 +309,12 @@
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
+                <!--<div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
+				-->
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+			  
+              <div class="text-center"><button type="submit" onclick="SubForm()">Send Message</button></div>
             </form>
           </div>
 
